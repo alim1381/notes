@@ -27,7 +27,7 @@
 .add {
     padding: 10px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
@@ -38,6 +38,7 @@
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
+    margin-right: 10px;
 }
 .objectsItem {
     overflow: scroll;
@@ -54,4 +55,7 @@
     margin-right: 10px;
     border-radius: 10px;
     margin-top: 0;
+}
+.objSelected {
+    background: linear-gradient(#ffee53 , #f0e054 ) !important;
 }

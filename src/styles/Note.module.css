@@ -21,6 +21,19 @@
     border: 0;
     outline: 0;
 }
+.main textarea::-webkit-scrollbar-thumb {
+    background-color:#aaaaaac7;
+    border-radius: 10px;
+}
+.main textarea::-webkit-scrollbar {
+    background:none;
+    resize: none;
+    width: 2px;
+}
+.main textarea::-webkit-scrollbar-corner {
+    background:none;
+    resize: none;
+}
 .bottomSection {
     display: flex;
     justify-content: space-around;
