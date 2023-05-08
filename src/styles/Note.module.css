@@ -7,8 +7,26 @@
 }
 .inputDiv {
     width: 1000px;
-    height: 90%;
+    height: 85%;
 
+}
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.titleChilde {
+    display: flex;
+
+}
+.title svg {
+    width: 20px;
+    
+}
+.title h3 {
+    margin: 0;
+    margin-right: 5px;
 }
 .main textarea {
     width:100%;

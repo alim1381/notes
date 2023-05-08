@@ -5,6 +5,7 @@ import Note from './shared/Note'
 
 // Styles
 import styles from '../styles/Landing.module.css'
+import AddForm from './shared/AddForm'
 
 export default function Landing() {
     const [data , setData] = useState([
@@ -26,10 +27,10 @@ export default function Landing() {
     ])
 
     const [note , setNote] = useState("")
+    const [showAddForm , setShowAddForm] = useState(false)
+
     const clickHandler = (e) => {
-        const veryfiy = data.includes(note)
-        console.log(veryfiy);
-        if (note && veryfiy) {
+        if (note) {
             saveHandler()
         }
         setNote(e)
@@ -43,12 +44,31 @@ export default function Landing() {
     const deleteHandler = () => {
         const newData = data.filter(e => e.id !== note.id);
         setData(newData)
+        setNote("")
+    }
+    const addObject = (e) => {
+        const id = data.length + 1
+        const obj = {
+            title : e ,
+            text : "",
+            id: id,
+        }
+        // const prevData = data;
+        // prevData.unshift(obj)
+
+        setData(prev => [obj ,...prev])
+        setNote(obj)
+        setShowAddForm(!showAddForm)
+    }
+    const showAddFormHandler = () => {
+        setShowAddForm(!showAddForm)
+        setNote("")
     }
   return (
     <div className={styles.container}>
         <div className={styles.objects}>
             <div className={styles.add}>
-                <button>+</button>
+                <button onClick={() => showAddFormHandler() }>+</button>
             </div>
             <div className={styles.objectsItem}>
                 {
@@ -60,6 +80,10 @@ export default function Landing() {
         {
             note && <Note text={note} setNote={setNote} saveHandler={saveHandler} deleteHandler={deleteHandler}/>
         }
+        
+            {
+                showAddForm && <AddForm addObject={addObject} showAddFormHandler={showAddFormHandler} />
+            }
     </div>
   )
 }
