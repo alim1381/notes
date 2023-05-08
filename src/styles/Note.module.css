@@ -1,0 +1,53 @@
+.main {
+    background-color: #fff;
+    height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 1px rgba(64,60,67,.16);
+    padding: 20px;
+}
+.inputDiv {
+    width: 1000px;
+    height: 90%;
+
+}
+.main textarea {
+    width:100%;
+    height: 100%;
+    border: 0;
+    resize: none;
+    outline: 0;
+}
+.main textarea:focus {
+    border: 0;
+    outline: 0;
+}
+.bottomSection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10%;
+    padding: 5px;
+}
+
+.bottomSection button {
+    width: 70px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    background: linear-gradient(#7cfa56 , #51fc8a);
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 1px rgba(64,60,67,.16);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.delete {
+    background: linear-gradient(#fa5656 , #fc5176) !important; 
+}
+.delete:hover {
+    background: linear-gradient(#f84444 , #db3459) !important;
+}
+.save:hover {
+    background: linear-gradient(#5fff2f , #37e972);
+}

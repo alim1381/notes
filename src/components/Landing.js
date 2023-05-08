@@ -1,5 +1,8 @@
 import React from 'react'
 
+// Components
+import Note from './shared/Note'
+
 // Styles
 import styles from '../styles/Landing.module.css'
 
@@ -12,18 +15,12 @@ export default function Landing() {
             </div>
             <div className={styles.objectsItem}>
                 <p>Salam</p>
-                <p>Salam</p>
-                <p>Salam</p>
+                
             </div>
         </div>
-        <div className={styles.main}>
-            <div className={styles.inputDiv} >
-                <textarea type="text" placeholder='type here ...'/>
-            </div>
-            <div className={styles.bottomSection}>
-                <button>Save</button>
-            </div>
-        </div>
+        {
+            <Note />
+        }
     </div>
   )
 }
