@@ -6,7 +6,12 @@ import Note from './shared/Note'
 // Styles
 import styles from '../styles/Landing.module.css'
 import AddForm from './shared/AddForm'
-const idArry = [];
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+let idArry = [];
+
+// Tostify
 
 export default function Landing() {
     const [data , setData] = useState([
@@ -36,34 +41,52 @@ export default function Landing() {
         }
         setNote(e)
     }
-
     const saveHandler = () => {
         const newData = data.filter(e => e.id !== note.id);
         newData.unshift(note)
         setData(newData)
-        setNote("")
+        toast.success(`Save ${note.title}`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+        // setNote("")
     }
     const deleteHandler = () => {
         const newData = data.filter(e => e.id !== note.id);
+        const newArry = idArry.filter(i => i !== note.id);
+        idArry = newArry;
         setData(newData)
         setNote("")
     }
+
+    const randomNum = () => {
+        let testId = Math.round(Math.random() * 10000)
+        let loop = true;
+        while (loop) {
+            for (let i = 0; i<idArry.length; i++) {
+                if (testId === idArry[i]) {
+                    randomNum()
+                    break;
+                }
+            }
+            break;
+        }
+        return testId;
+
+    }
+
     const addObject = (e) => {
-        let obj = {};
-        let testId = data.length + 1
-        if (!idArry.includes(testId)) {
-            obj = {
-                title : e ,
-                text : "",
-                id: testId,
-            }
-        } else {
-            testId += 1;
-            obj = {
-                title : e ,
-                text : "",
-                id: testId,
-            }
+        const testId = randomNum();
+        const obj = {
+            title : e ,
+            text : "",
+            id: testId,
         }
         idArry.unshift(testId);
 
@@ -91,6 +114,7 @@ export default function Landing() {
                 }
                 
             </div>
+        <ToastContainer/>
         </div>
         {
             note && <Note text={note} setNote={setNote} saveHandler={saveHandler} deleteHandler={deleteHandler}/>
