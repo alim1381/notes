@@ -6,24 +6,25 @@ import Note from './shared/Note'
 // Styles
 import styles from '../styles/Landing.module.css'
 import AddForm from './shared/AddForm'
+const idArry = [];
 
 export default function Landing() {
     const [data , setData] = useState([
-        {
-            title : "Hi",
-            text : "Hi my Name is Ali",
-            id: 1,
-        },
-        {
-            title : "HELLO",
-            text : "Hello my Name is M",
-            id: 2,
-        },
-        {
-            title : "Yo",
-            text : "Yoooo my Name is Ali",
-            id: 3,
-        },
+        // {
+            //     title : "Hi",
+        //     text : "Hi my Name is Ali",
+        //     id: 1,
+        // },
+        // {
+        //     title : "HELLO",
+        //     text : "Hello my Name is M",
+        //     id: 2,
+        // },
+        // {
+        //     title : "Yo",
+        //     text : "Yoooo my Name is Ali",
+        //     id: 3,
+        // },
     ])
 
     const [note , setNote] = useState("")
@@ -40,6 +41,7 @@ export default function Landing() {
         const newData = data.filter(e => e.id !== note.id);
         newData.unshift(note)
         setData(newData)
+        setNote("")
     }
     const deleteHandler = () => {
         const newData = data.filter(e => e.id !== note.id);
@@ -47,17 +49,30 @@ export default function Landing() {
         setNote("")
     }
     const addObject = (e) => {
-        const id = data.length + 1
-        const obj = {
-            title : e ,
-            text : "",
-            id: id,
+        let obj = {};
+        let testId = data.length + 1
+        if (!idArry.includes(testId)) {
+            obj = {
+                title : e ,
+                text : "",
+                id: testId,
+            }
+        } else {
+            testId += 1;
+            obj = {
+                title : e ,
+                text : "",
+                id: testId,
+            }
         }
+        idArry.unshift(testId);
+
         // const prevData = data;
         // prevData.unshift(obj)
 
         setData(prev => [obj ,...prev])
-        setNote(obj)
+        setNote("")
+
         setShowAddForm(!showAddForm)
     }
     const showAddFormHandler = () => {
