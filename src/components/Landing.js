@@ -6,31 +6,37 @@ import Note from './shared/Note'
 // Styles
 import styles from '../styles/Landing.module.css'
 import AddForm from './shared/AddForm'
+// Tostify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 let idArry = [];
 
-// Tostify
 
 export default function Landing() {
     const [data , setData] = useState([
-        // {
-            //     title : "Hi",
-        //     text : "Hi my Name is Ali",
-        //     id: 1,
-        // },
-        // {
-        //     title : "HELLO",
-        //     text : "Hello my Name is M",
-        //     id: 2,
-        // },
-        // {
-        //     title : "Yo",
-        //     text : "Yoooo my Name is Ali",
-        //     id: 3,
-        // },
+        {
+                title : "Hi",
+            text : "Hi my Name is Ali",
+            id: 1,
+        },
+        {
+            title : "HELLO",
+            text : "Hello my Name is M",
+            id: 2,
+        },
+        {
+            title : "Yo",
+            text : "Yoooo my Name is Ali",
+            id: 3,
+        },
     ])
+
+//  id State
+    const [showObject , setShowObject] = useState(true);
+    
+
 
     const [note , setNote] = useState("")
     const [showAddForm , setShowAddForm] = useState(false)
@@ -40,6 +46,7 @@ export default function Landing() {
             saveHandler()
         }
         setNote(e)
+        setShowObject(!showObject)
     }
     const saveHandler = () => {
         const newData = data.filter(e => e.id !== note.id);
@@ -47,7 +54,7 @@ export default function Landing() {
         setData(newData)
         toast.success(`Save ${note.title}`, {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -63,6 +70,7 @@ export default function Landing() {
         idArry = newArry;
         setData(newData)
         setNote("")
+        setShowObject(!showObject)
     }
 
     const randomNum = () => {
@@ -104,11 +112,11 @@ export default function Landing() {
     }
   return (
     <div className={styles.container}>
-        <div className={styles.objects}>
+        <div className={showObject ? styles.objects : styles.objectsHidde} >
             <div className={styles.add}>
                 <button onClick={() => showAddFormHandler() }>+</button>
             </div>
-            <div className={styles.objectsItem}>
+            <div className={styles.objectsItem} id={showObject ? "objectsHide" : ""}>
                 {
                     data.map(t => <p className={t.id === note.id ? styles.objSelected : ""} onClick={() => clickHandler(t)} key={t.id}>{t.title}</p>)
                 }
@@ -117,7 +125,7 @@ export default function Landing() {
         <ToastContainer/>
         </div>
         {
-            note && <Note text={note} setNote={setNote} saveHandler={saveHandler} deleteHandler={deleteHandler}/>
+            note && <Note showObject={showObject} setShowObject={setShowObject} text={note} setNote={setNote} saveHandler={saveHandler} deleteHandler={deleteHandler}/>
         }
         
             {

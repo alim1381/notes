@@ -4,7 +4,7 @@
 
 }
 
-.objects {
+.objects , .objectsHidde {
     display: flex;
     flex-direction: column;
     height: 80vh;
@@ -62,4 +62,14 @@
 }
 .objSelected {
     background: linear-gradient(#ffee53 , #f0e054 ) !important;
+}
+
+@media (max-width: 1340px)  {
+    .container {
+        justify-content: center;
+    
+    }
+    .objectsHidde {
+        display: none !important;
+    }
 }

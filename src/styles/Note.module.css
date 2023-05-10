@@ -1,4 +1,4 @@
-.main {
+.main , .mainHidden {
     background-color: #fff;
     height: 80vh;
     border-radius: 10px;
@@ -13,15 +13,19 @@
 .title {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
 .titleChilde {
     display: flex;
 
 }
+.backArrowButton {
+    display: none;
+}
 .title img {
     width: 20px;
+    cursor: pointer;
     
 }
 .title h3 {
@@ -34,6 +38,7 @@
     border: 0;
     resize: none;
     outline: 0;
+    padding: 10px;
 }
 .main textarea:focus {
     border: 0;
@@ -81,4 +86,38 @@
 }
 .save:hover {
     background: linear-gradient(#5fff2f , #37e972);
+}
+
+@media (max-width: 1340px)  {
+    .backArrowButton {
+        display: inline !important;
+    }
+    .mainHidden {
+        display: none !important;
+    }
+}
+@media (max-width: 1060px)  {
+    .inputDiv {
+        width: 700px;
+    }
+}
+@media (max-width: 760px)  {
+    .inputDiv {
+        width: 400px;
+    }
+}
+@media (max-width: 460px)  {
+    .inputDiv {
+        width: 350px;
+    }
+}
+@media (max-width: 400px)  {
+    .inputDiv {
+        width: 280px;
+    }
+}
+@media (max-width: 350px)  {
+    .inputDiv {
+        width:250px;
+    }
 }
