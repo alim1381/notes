@@ -5,7 +5,7 @@
     box-shadow: 0 2px 5px 1px rgba(64,60,67,.16);
     padding: 20px;
 }
-.inputDiv {
+.inputDiv , .inputDivHidde {
     width: 1000px;
     height: 85%;
 
@@ -32,7 +32,7 @@
     margin: 0;
     margin-right: 5px;
 }
-.main textarea {
+.main textarea , .mainHidden textarea {
     width:100%;
     height: 100%;
     border: 0;
@@ -40,20 +40,20 @@
     outline: 0;
     padding: 10px;
 }
-.main textarea:focus {
+.main textarea:focus , .mainHidden textarea:focus {
     border: 0;
     outline: 0;
 }
-.main textarea::-webkit-scrollbar-thumb {
+.main textarea::-webkit-scrollbar-thumb , .mainHidden textarea::-webkit-scrollbar-thumb {
     background-color:#aaaaaac7;
     border-radius: 10px;
 }
-.main textarea::-webkit-scrollbar {
+.main textarea::-webkit-scrollbar , .mainHidden textarea::-webkit-scrollbar {
     background:none;
     resize: none;
     width: 2px;
 }
-.main textarea::-webkit-scrollbar-corner {
+.main textarea::-webkit-scrollbar-corner , .mainHidden textarea::-webkit-scrollbar-corner {
     background:none;
     resize: none;
 }
