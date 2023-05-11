@@ -77,10 +77,14 @@
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+.bottomSection button:focus {
+    outline: 0;
+}
 .delete {
     background: linear-gradient(#fa5656 , #fc5176) !important; 
 }
+
+
 .delete:hover {
     background: linear-gradient(#f84444 , #db3459) !important;
 }

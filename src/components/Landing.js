@@ -129,7 +129,7 @@ export default function Landing() {
       <div className={styles.container}>
         <div className={showObject ? styles.objects : styles.objectsHidde} >
             <div className={styles.add}>
-                <button onClick={() => showAddFormHandler() }>+</button>
+                <button autoFocus onClick={() => showAddFormHandler() }>+</button>
             </div>
             <div className={styles.objectsItem} id={showObject ? "objectsHide" : ""}>
                 {
